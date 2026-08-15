@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-emerald-deep: #021812;
+    --color-emerald-dark: #02241b;
+    --color-emerald-card: #032d22;
+    --color-emerald-surface: #064e3b;
+    --color-emerald-royal: #047857;
+    --color-emerald-glow: #10b981;
+    --color-champagne-gold: #d4af37;
+    --color-champagne-bright: #f5ecd0;
+    --color-champagne-dark: #b89047;
+    --color-warm-ivory: #fdfbf7;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #021812;
+    color: #f5ecd0;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Playfair Display', 'Cinzel', Georgia, serif;
+  }
+
+  .font-display {
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer utilities {
+  /* Royal Emerald + Champagne Luxury Scrollbars */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #021812;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #064e3b;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 9999px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #d4af37;
+  }
+
+  /* Royal Emerald Glassmorphism Card */
+  .emerald-glass {
+    background: linear-gradient(135deg, rgba(6, 78, 59, 0.45) 0%, rgba(2, 36, 28, 0.85) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+  }
+
+  /* Royal Luxury Card */
+  .emerald-card {
+    background: linear-gradient(180deg, rgba(3, 45, 34, 0.9) 0%, rgba(2, 24, 18, 0.98) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 25px -5px rgba(4, 120, 87, 0.2);
+  }
+
+  /* Champagne Gold Gradient Text & Backgrounds */
+  .text-champagne-gold {
+    color: #d4af37;
+  }
+  
+  .bg-champagne-gradient {
+    background: linear-gradient(135deg, #d4af37 0%, #f5ecd0 50%, #b89047 100%);
+  }
+
+  .bg-emerald-gradient {
+    background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #065f46 100%);
+  }
+
+  .border-champagne {
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+
+  /* Luxury Gold Buttons */
+  .btn-gold-luxury {
+    background: linear-gradient(135deg, #d4af37 0%, #f5ecd0 50%, #b89047 100%);
+    color: #021812;
+    font-weight: 800;
+    transition: all 0.2s ease-in-out;
+  }
+  .btn-gold-luxury:hover {
+    background: linear-gradient(135deg, #f5ecd0 0%, #d4af37 100%);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  }
+}
+
+/* Print Styles for Executive Reports, Vouchers, Invoices, and Salary Slips */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm;
+  }
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  #root, main, div {
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 0 !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  header, sidebar, nav, button, input, select, textarea, .no-print, aside, footer {
+    display: none !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  #printable-report, #printable-report *,
+  #printable-voucher, #printable-voucher *,
+  #printable-invoice, #printable-invoice *,
+  #printable-salary-slip, #printable-salary-slip *,
+  #printable-manifest, #printable-manifest * {
+    visibility: visible !important;
+  }
+
+  #printable-report-header {
+    display: block !important;
+  }
+
+  #printable-report, #printable-voucher, #printable-invoice, #printable-salary-slip, #printable-manifest {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  #printable-report {
+    color: #000000 !important;
+    background-color: #ffffff !important;
+  }
+
+  #printable-report .bg-zinc-950,
+  #printable-report .bg-zinc-900,
+  #printable-report .bg-zinc-900\/90,
+  #printable-report .bg-zinc-900\/80,
+  #printable-report .bg-zinc-900\/50,
+  #printable-report .bg-zinc-800,
+  #printable-report .bg-zinc-800\/50,
+  #printable-report .bg-zinc-800\/80 {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border-color: #e4e4e7 !important;
+    box-shadow: none !important;
+  }
+
+  #printable-report .text-white,
+  #printable-report .text-zinc-100,
+  #printable-report .text-zinc-200,
+  #printable-report .text-zinc-300,
+  #printable-report .text-zinc-400 {
+    color: #18181b !important;
+  }
+
+  #printable-report .text-zinc-500,
+  #printable-report .text-zinc-600 {
+    color: #3f3f46 !important;
+  }
+
+  #printable-report .text-amber-300,
+  #printable-report .text-amber-400,
+  #printable-report .text-amber-500 {
+    color: #b45309 !important;
+  }
+
+  #printable-report .text-emerald-400,
+  #printable-report .text-emerald-500 {
+    color: #15803d !important;
+  }
+
+  #printable-report .text-rose-400,
+  #printable-report .text-rose-500 {
+    color: #b91c1c !important;
+  }
+
+  #printable-report .border-zinc-800,
+  #printable-report .border-zinc-700,
+  #printable-report .border-amber-500\/20,
+  #printable-report .border-amber-500\/30 {
+    border-color: #e4e4e7 !important;
+  }
+
+  #printable-report table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  #printable-report th,
+  #printable-report td {
+    border: 1px solid #e4e4e7 !important;
+    padding: 6px 8px !important;
+    color: #000000 !important;
+  }
+
+  #printable-report th {
+    background-color: #f4f4f5 !important;
+    font-weight: 700 !important;
+  }
+
+  #printable-report tr,
+  #printable-report .p-5,
+  #printable-report .p-6,
+  #printable-report .rounded-2xl {
+    page-break-inside: avoid !important;
+  }
+
+  #printable-voucher *, #printable-invoice *, #printable-salary-slip *, #printable-manifest * {
+    color: #000000 !important;
+    background-color: transparent !important;
+    border-color: #cccccc !important;
+  }
+}

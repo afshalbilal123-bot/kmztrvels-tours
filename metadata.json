@@ -1,0 +1,6 @@
+{
+  "name": "KMZ Travels CRM",
+  "description": "Luxury Umrah & Hajj Travel CRM & Customer Portal for KMZ Travels & Tours",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
